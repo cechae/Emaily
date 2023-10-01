@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require('mongoose');
-const keys = require('./config/keys')
+const keys = require('./config/keys');
 const passport = require('passport');
 // require statement just makes sure "passport.js" code gets executed.
 // No need to assign it in a variable.
