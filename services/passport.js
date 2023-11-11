@@ -4,16 +4,13 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
 const User = mongoose.model('users');
-console.log(User);
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('hmmm---1-------------------');
-  console.log(id);
+  // console.log(id);
   User.findById(id).then((user) => {
-    console.log(id);
     done(null, user);
   });
 });
@@ -28,8 +25,8 @@ passport.use(
       proxy: true,
     },
     async (accessToken, refreshToken, profile, done) => {
-      console.log('hmmm------2-----------------');
-      console.log(profile.id);
+      // console.log('hmmm------2-----------------');
+      // console.log(profile.id);
       const existingUser = await User.findOne({ googleId: profile.id });
       if (existingUser) {
         return done(null, existingUser);
