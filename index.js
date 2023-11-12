@@ -26,9 +26,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-  res.send({ hi: 'there' });
-});
+// app.get('/', (req, res) => {
+//   res.send({ hi: 'there' });
+// });
 // when we require authRoutes file, it returns a "FUNCTION".
 // then immediatley call that function with 'app' variable.
 require('./routes/authRoutes')(app);
