@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 
 require('./models/User'); // Import User model class!
 require('./services/passport');
-
+require('./models/Survey');
 mongoose.connect(keys.mongoURI);
 
 const app = express();
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 // then immediatley call that function with 'app' variable.
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
-
+require('./routes/surveyRoutes')(app);
 // only run this in PROD
 if (process.env.NODE_ENV === 'production') {
   //Express will serve up prod assets - main.js and main.css
